@@ -13,6 +13,14 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
+  {
+    path: "/executionNotes",
+    name: "ExecutionNotes",
+    component: () =>
+      import(
+        /* webpackChunkName: "executionNotes" */ "../views/ExecutionNotes.vue"
+      ),
+  },
 ];
 
 const router = createRouter({

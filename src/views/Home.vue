@@ -21,6 +21,17 @@
                 </router-link>
               </div>
             </li>
+            <li class="collection-item">
+              <div>
+                Execution Notes
+                <router-link
+                  :to="{ name: 'ExecutionNotes' }"
+                  class="secondary-content"
+                >
+                  <i class="material-icons">send</i>
+                </router-link>
+              </div>
+            </li>
           </ul>
         </div>
       </div>
