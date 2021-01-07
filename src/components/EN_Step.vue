@@ -87,7 +87,58 @@
         </table>
       </div>
     </div>
-    <div v-else>No data to show.</div>
+    <div v-if="!notes.length && !isLoading">No data to show.</div>
+    <div class="loader-wrapper" v-show="isLoading">
+      <div class="preloader-wrapper active">
+        <div class="spinner-layer spinner-blue">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-red">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-yellow">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+
+        <div class="spinner-layer spinner-green">
+          <div class="circle-clipper left">
+            <div class="circle"></div>
+          </div>
+          <div class="gap-patch">
+            <div class="circle"></div>
+          </div>
+          <div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -113,7 +164,7 @@ export default {
     const { testPlans, loadTestPlans } = getTestPlans();
     loadTestPlans("/api/getTestPlans");
 
-    const { notes, loadStepNotes } = getStepNotes();
+    const { notes, isLoading, loadStepNotes } = getStepNotes();
 
     const { downloadCSV } = useDownload();
 
@@ -122,6 +173,7 @@ export default {
       search,
       testPlans,
       notes,
+      isLoading,
       loadStepNotes,
       downloadCSV,
       filteredNotes,
@@ -144,5 +196,9 @@ export default {
       background: rgba($color: #ee6e73, $alpha: 0.2);
     }
   }
+}
+.loader-wrapper {
+  width: 5rem;
+  margin: auto;
 }
 </style>
