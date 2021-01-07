@@ -3,7 +3,13 @@
     <h4>Step Notes</h4>
     <!-- Search Form -->
     <div v-if="testPlans" class="form">
-      <form @submit.prevent="loadStepNotes('/api/stepExecutionNotes')">
+      <form
+        @submit.prevent="
+          loadStepNotes(
+            '/api/stepExecutionNotes?test_plan_id=' + showTestPlans.toString()
+          )
+        "
+      >
         <div class="row">
           <h5>Select Test Plan(s)</h5>
         </div>
